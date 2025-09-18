@@ -1,0 +1,116 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "sklearn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sklearn",
+        "description": "sklearn",
+        "detail": "sklearn",
+        "documentation": {}
+    },
+    {
+        "label": "pickle",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pickle",
+        "description": "pickle",
+        "detail": "pickle",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def index():\n    return render_template(\"index.html\")\n@app.route(\"/predict\", methods=[\"POST\"])\ndef predict():\n    N = request.form[\"Nitrogen\"]\n    P = request.form[\"Phosporus\"]\n    K = request.form[\"Potassium\"]\n    temp = request.form[\"Temperature\"]\n    humidity = request.form[\"Humidity\"]\n    ph = request.form[\"Ph\"]",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "predict",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def predict():\n    N = request.form[\"Nitrogen\"]\n    P = request.form[\"Phosporus\"]\n    K = request.form[\"Potassium\"]\n    temp = request.form[\"Temperature\"]\n    humidity = request.form[\"Humidity\"]\n    ph = request.form[\"Ph\"]\n    rainfall = request.form[\"Rainfall\"]\n    feature_list = [N, P, K, temp, humidity, ph, rainfall]\n    single_pred = np.array(feature_list).reshape(1, -1)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "model = pickle.load(open(\"model.pkl\", \"rb\"))\nsc = pickle.load(open(\"standscaler.pkl\", \"rb\"))\nms = pickle.load(open(\"minmaxscaler.pkl\", \"rb\"))\n# creating flask app\napp = Flask(__name__)\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\")\n@app.route(\"/predict\", methods=[\"POST\"])\ndef predict():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "sc",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "sc = pickle.load(open(\"standscaler.pkl\", \"rb\"))\nms = pickle.load(open(\"minmaxscaler.pkl\", \"rb\"))\n# creating flask app\napp = Flask(__name__)\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\")\n@app.route(\"/predict\", methods=[\"POST\"])\ndef predict():\n    N = request.form[\"Nitrogen\"]",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "ms",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "ms = pickle.load(open(\"minmaxscaler.pkl\", \"rb\"))\n# creating flask app\napp = Flask(__name__)\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\")\n@app.route(\"/predict\", methods=[\"POST\"])\ndef predict():\n    N = request.form[\"Nitrogen\"]\n    P = request.form[\"Phosporus\"]",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\n@app.route(\"/\")\ndef index():\n    return render_template(\"index.html\")\n@app.route(\"/predict\", methods=[\"POST\"])\ndef predict():\n    N = request.form[\"Nitrogen\"]\n    P = request.form[\"Phosporus\"]\n    K = request.form[\"Potassium\"]\n    temp = request.form[\"Temperature\"]",
+        "detail": "app",
+        "documentation": {}
+    }
+]
